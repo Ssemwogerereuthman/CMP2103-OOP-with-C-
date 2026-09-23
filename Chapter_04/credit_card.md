@@ -49,3 +49,17 @@ int getSize(long long d);
 
 //Return the first k number of digits from number. If the number of digits in number is less than k, return number.\
 long long getPrefix(long long number, int k);
+# Credit Card Validator
+
+## Overview
+This C++ program verifies whether a given credit card number is valid based on the Luhn Algorithm. 
+
+## How the Code Works
+1. **Input:** The user is prompted to enter a credit card number as a `long long` integer.
+2. **Validation Logic (`isValid` function):** 
+   - The program checks the total number of digits using `getSize()`. Valid cards must have between 13 and 16 digits.
+   - It checks the starting digits using `getPrefix()` to ensure it matches standard vendors (e.g., Visa starts with 4, MasterCard with 5).
+3. **Luhn Algorithm Calculation:**
+   - `sumOfDoubleEvenPlace()`: Doubles every second digit from right to left. If doubling results in a two-digit number, it adds the two digits together to get a single digit.
+   - `sumOfOddPlace()`: Adds all the remaining odd-placed digits from right to left.
+4. **Final Check:** The sum of the even-placed calculation and the odd-placed calculation must be a multiple of 10 for the card to be considered valid.
